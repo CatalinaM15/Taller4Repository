@@ -84,7 +84,7 @@ public class VentanaLightsOut extends JFrame {
 	}
 
 //
-	public void jugar(int fila, int columna) {
+	public void jugar(int fila, int columna) throws FileNotFoundException, UnsupportedEncodingException {
 		modelo.jugar(fila, columna);
 		panelCentro.actualizar(modelo.darTablero());
 		panelAbajo.NumeroJugadas();
@@ -99,6 +99,7 @@ public class VentanaLightsOut extends JFrame {
 					JOptionPane.YES_NO_OPTION);
 
 			if (reiniciar == JOptionPane.YES_OPTION) {
+				finalizar();
 				nuevomundo();
 				panelCentro.actualizar(matrix);
 				panelAbajo.reiniciar();

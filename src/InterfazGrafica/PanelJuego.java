@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 
 import javax.swing.JPanel;
 
@@ -59,7 +61,12 @@ public class PanelJuego extends JPanel implements MouseListener, ActionListener 
 		int click_x = e.getX();
 		int click_y = e.getY();
 		int[] casilla = convertirCoordenadasACasilla(click_x, click_y);
-		Ventana.jugar(casilla[0], casilla[1]);
+		try {
+			Ventana.jugar(casilla[0], casilla[1]);
+		} catch (FileNotFoundException | UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		repaint();
 	}
 
